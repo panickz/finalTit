@@ -26,7 +26,9 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 	function onDeviceReady() {
 	
-		 navigator.splashscreen.hide();
+		 setTimeout(function() {
+		    navigator.splashscreen.hide();
+		}, 10000);
 
 	}
 </script>
@@ -400,13 +402,11 @@ document.addEventListener("deviceready", onDeviceReady, false);
 				 
 	        }
 	    }
-	    
-	    $(".swipebox").swipebox({
-	        useCSS: true,
-	        useSVG: true,
-	        hideBarsOnMobile: false,
-	        hideBarsDelay: 3e3
-	    });
+	
+	$(".swipebox").swipebox({
+		useCSS : true, // false will force the use of jQuery for animations
+		hideBarsDelay : 3000 // 0 to always show caption and action bar
+	});
 	    
 	})
  </script>				 

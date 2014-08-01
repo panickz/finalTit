@@ -14,6 +14,7 @@ $(document).ready(function(){
 	
 	$('.close-nav, .sidebar-close').click(function(){
 		snapper.close();
+		$('body').css('position','inherit');
 	});
 	
 	$('.wide-image').click(function(){
@@ -24,15 +25,30 @@ $(document).ready(function(){
 	var snapper = new Snap({
 	  element: document.getElementById('content')
 	});
+	
+	snapper.on('open', function(){
+	  $('body').css('position','fixed');
+	  console.log('fixed');
+	});
+	
+	snapper.on('drag', function(){
+	  $('body').css('position','fixed');
+	  console.log('fixed');
+	});
+	
+	snapper.on('close', function(){
+	  $('body').css('position','inherit');
+	  console.log('inherit');
+	});
 
+	
 	$('.deploy-sidebar').click(function(){
 		//$(this).toggleClass('remove-sidebar');
 		if( snapper.state().state=="left" ){
 			snapper.close();
-			$('body').css('position','inherit');
+			
 		} else {
 			snapper.open('left');
-			$('body').css('position','fixed');
 		}
 		return false;
 	});
