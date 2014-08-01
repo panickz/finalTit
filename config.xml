@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "com.phonegap.pgbsample"
+        versionCode = "10" 
+        version     = "1.0.0" >
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>Titlurile Zilei</name>
+
+	<description>
+	Aici sunt cele mai recente cazuri de cele mai mari ziare din Brazilia pentru gratuit. Nu plati pentru a fii informat. 
+	</description>
+	
+	<author href="https://www.salesengineonline.com" email="it@salesengineonline.com">
+	Sales Engine Online
+	</author>
+	
+	<gap:plugin name="com.phonegap.plugin.statusbar" />
+	
+	<gap:platform name="ios" />
+	<gap:platform name="android" />
+	
+	<preference name="phonegap-version" value="3.3.0" />
+	
+	<preference name="KeepRunning" value="false"/>
+	
+	<gap:plugin name="org.apache.cordova.splashscreen" />
+	
+	<gap:splash gap:platform="ios" src="res/screen/ios/1536x2048.png" width="1536" height="2048" />
+	<gap:splash gap:platform="ios" src="res/screen/ios/768x1024.png" width="768" height="1024" />
+	<gap:splash gap:platform="ios" src="res/screen/ios/2048x1536.png" width="2048" height="1536" />
+	<gap:splash gap:platform="ios" src="res/screen/ios/1024x768.png" width="1024" height="768" />
+	<gap:splash gap:platform="ios" src="res/screen/ios/960x640.png" width="960" height="640" />
+	<gap:splash gap:platform="ios" src="res/screen/ios/480x320" width="480" height="320" />
+	<gap:splash gap:platform="ios" src="res/screen/ios/640x960.png" width="640" height="960" />
+	<gap:splash gap:platform="ios" src="res/screen/ios/640x1136.png" width="640" height="1136" />
+	<gap:splash gap:platform="ios" src="res/screen/ios/320x480.png" width="320" height="480" />
+	
+	<icon src="res/icons/ios/icon-60.png" gap:platform="ios" width="60" height="60" />
+	<icon src="res/icons/ios/icon-60-2x.png" gap:platform="ios" width="120" height="120" />
+
+	<icon src="res/icons/ios/icon-76.png" gap:platform="ios" width="76" height="76" />
+	<icon src="res/icons/ios/icon-76-2x.png" gap:platform="ios" width="152" height="152" />
+
+	<icon src="res/icons/ios/icon-small.png" gap:platform="ios" width="29" height="29" />
+	<icon src="res/icons/ios/icon-small-2x.png" gap:platform="ios" width="58" height="58" />
+
+	<icon src="res/icons/ios/icon-40.png" gap:platform="ios" width="40" height="40" />
+	<icon src="res/icons/ios/icon-40-2x.png" gap:platform="ios" width="80" height="80" />
+	
+	<gap:plugin name="org.apache.cordova.inappbrowser"  />
+	<gap:plugin name="org.apache.cordova.vibration" />
+	
+	<engines>
+      <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+	<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:rim="http://www.blackberry.com/ns/widgets"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="org.apache.cordova.statusbar"
+    version="0.1.7-dev">
+    <name>StatusBar</name>
+    <description>Cordova StatusBar Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,statusbar</keywords>
+
+    <engines>
+            <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <js-module src="www/statusbar.js" name="statusbar">
+        <clobbers target="window.StatusBar" />
+    </js-module>
+
+    <platform name="android">
+        <source-file src="src/android/StatusBar.java" target-dir="src/org/apache/cordova/statusbar" />
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="StatusBar">
+                <param name="android-package" value="org.apache.cordova.statusbar.StatusBar" onload="true" />
+            </feature>
+        </config-file>
+    </platform>
+    <!-- ios -->
+    <platform name="ios">
+
+        <config-file target="config.xml" parent="/*">
+            <feature name="StatusBar">
+                <param name="ios-package" value="CDVStatusBar" onload="true" />
+            </feature>
+            <preference name="StatusBarOverlaysWebView" value="true" />
+            <preference name="StatusBarBackgroundColor" value="#000000" />
+            <preference name="StatusBarStyle" value="lightcontent" />
+        </config-file>
+
+        <header-file src="src/ios/CDVStatusBar.h" />
+        <source-file src="src/ios/CDVStatusBar.m" />
+
+    </platform>
+    <!-- wp7 -->
+    <platform name="wp7">
+        <config-file target="config.xml" parent="/*">
+            <feature name="StatusBar">
+                <param name="wp-package" value="StatusBar"/>
+            </feature>
+        </config-file>
+        <source-file src="src/wp/StatusBar.cs" />
+    </platform>
+
+    <!-- wp8 -->
+    <platform name="wp8">
+        <config-file target="config.xml" parent="/*">
+            <feature name="StatusBar">
+                <param name="wp-package" value="StatusBar"/>
+            </feature>
+        </config-file>
+        <source-file src="src/wp/StatusBar.cs" />
+    </platform>
+	</plugin>
+	<access origin="*" />
+	
+</widget>
