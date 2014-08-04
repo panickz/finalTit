@@ -4,53 +4,27 @@ $(document).ready(function(){
 
 	console.log('V 1.1.6');
 
-	$('.submenu-deploy').click(function(){
-		$(this).parent().find('.nav-item-submenu').toggle(100);
-		$(this).find('em').toggleClass('dropdown-nav');
-		return false;
-	});
-
-	$('.style-changer').click(function(){
-		return false;
-	});
-
 	$('.close-nav, .sidebar-close').click(function(){
 		snapper.close();
 		$('body').css('position','inherit');
 	});
 
-	$('.wide-image').click(function(){
-		$(this).parent().find('.wide-item-content').toggle(50);
-		return false;
-	});
-
 	var snapper = new Snap({
-	  element: document.getElementById('content')
+	  element: document.getElementById('content'),
+      disable:'none'
 	});
-
-	snapper.on('open', function(){
-	  $('body').css('position','fixed');
-	  console.log('fixed');
-	});
-
-	snapper.on('drag', function(){
-	  $('body').css('position','fixed');
-	  console.log('fixed');
-	});
-
-	snapper.on('close', function(){
-	  $('body').css('position','inherit');
-	  console.log('inherit');
-	});
-
 
 	$('.deploy-sidebar').click(function(){
 		//$(this).toggleClass('remove-sidebar');
 		if( snapper.state().state=="left" ){
 			snapper.close();
+            $('body').css('position','inherit');
+            console.log('inherit');
 
 		} else {
 			snapper.open('left');
+            $('body').css('position','fixed');
+            console.log('inherit');
 		}
 		return false;
 	});
@@ -207,5 +181,136 @@ $(document).ready(function(){
 	            }
 	        });
 	    }
+    $(".favIt").click(function () {
+        var e = $(this).attr("data-id");
+        var t = $(this).attr("data-cover");
+        if (localStorage.getItem("favJSON") === null) {
+            var n = [{
+                id: e,
+                cover: t
+            }];
+
+            $('.fixed-header').append('<a class="deploy-contact"></a>');
+
+            $(".favList").append('<li> \
+                        <a href="http://www.titlurile-zilei.com/assets/upload/mobile/' + t + '" class="swipebox" rel="favorites"> \
+                            <img class="responsive-image" src="http://www.titlurile-zilei.com/assets/upload/mobile/' + t + '" alt="img"> \
+                        </a> \
+                    </li>');
+
+            $('.deploy-contact').click(function(){
+                //$(this).toggleClass('remove-sidebar');
+                if( snapper.state().state=="right" ){
+                    snapper.close();
+
+                } else {
+                    snapper.open('right');
+                }
+                return false;
+            });
+
+            $(".swipebox").swipebox({
+                useCSS : true, // false will force the use of jQuery for animations
+                hideBarsDelay : 3000 // 0 to always show caption and action bar
+            });
+
+            window.localStorage.setItem("favJSON", JSON.stringify(n));
+            var r = window.localStorage.getItem("favJSON");
+            $(this).val('Added');
+            $(this).addClass('sun_Active');
+
+        } else {
+            var n = [{
+                id: e,
+                cover: t
+            }];
+            var i = JSON.parse(localStorage.getItem("favJSON"));
+            var s = 0;
+            for (var o in i) {
+                if (i[o].id === e) {
+                    s = s + 1;
+                }
+            }
+
+            if($(".catFav > div").length % 2){
+                AddClass = 'last-column';
+            }else { AddClass = ''; }
+
+            if (s === 0) {
+                var u = $.merge(i, n);
+                window.localStorage.setItem("favJSON", JSON.stringify(u));
+                var r = localStorage.getItem("favJSON");
+
+                $(".favList").append('<li> \
+				                    <a href="http://www.titlurile-zilei.com/assets/upload/mobile/' + t + '" class="swipebox" rel="favorites"> \
+				                        <img class="responsive-image" src="http://www.titlurile-zilei.com/assets/upload/mobile/' + t + '" alt="img"> \
+				                    </a> \
+				                </li>');
+
+                $(".swipebox").swipebox({
+                    useCSS : true, // false will force the use of jQuery for animations
+                    hideBarsDelay : 3000 // 0 to always show caption and action bar
+                });
+
+                $(this).val('Added');
+                $(this).addClass('sun_Active');
+            }
+
+        }
+    });
+
+
+    if (localStorage.getItem("favJSON") !== null) {
+        $('.fixed-header').append('<a class="deploy-contact"></a>');
+        var n = JSON.parse(localStorage.getItem("favJSON"));
+        var switcher = 0;
+        for (var t in n) {
+
+
+            $(".favList").append('<li> \
+				                    <a href="http://www.titlurile-zilei.com/assets/upload/mobile/' + n[t].cover + '" class="swipebox" rel="favorites"> \
+				                        <img class="responsive-image" src="http://www.titlurile-zilei.com/assets/upload/mobile/' + n[t].cover + '" alt="img"> \
+				                    </a> \
+				                </li>');
+            switcher = switcher + 1;
+
+        }
+    }
+
+    $('.deploy-contact').click(function(){
+        //$(this).toggleClass('remove-sidebar');
+        if( snapper.state().state=="right" ){
+            snapper.close();
+            $('body').css('position','inherit');
+            console.log('inherit');
+
+        } else {
+            snapper.open('right');
+            $('body').css('position','fixed');
+            console.log('inherit');
+        }
+        return false;
+    });
+
+    $(".swipebox").swipebox({
+        useCSS : true, // false will force the use of jQuery for animations
+        hideBarsDelay : 3000 // 0 to always show caption and action bar
+    });
+
+    snapper.on('open', function(){
+        $('body').css('position','fixed');
+        console.log('fixed');
+    });
+
+    snapper.on('drag', function(){
+        $('body').css('position','fixed');
+        console.log('fixed');
+    });
+
+    snapper.on('close', function(){
+        $('body').css('position','inherit');
+        console.log('inherit');
+    });
+
 
 });
