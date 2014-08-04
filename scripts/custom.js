@@ -1,7 +1,9 @@
 // JavaScript Document
 
 $(document).ready(function(){
-
+	
+	alert('V 1.1.2');
+	
 	$('.submenu-deploy').click(function(){
 		$(this).parent().find('.nav-item-submenu').toggle(100);
 		$(this).find('em').toggleClass('dropdown-nav');
@@ -199,16 +201,73 @@ $(document).ready(function(){
 	                        }
 	                    })
 	                }
-	                window.localStorage.setItem("covers", JSON.stringify(n));
-	                var s = localStorage.getItem("covers")
+	               // window.localStorage.setItem("covers", JSON.stringify(n));
+	               // var s = localStorage.getItem("covers")
 	            }
 	        })
 	    }  
 		
+	    $(".favIt").click(function () {
+	        var e = $(this).attr("data-id");
+	        var t = $(this).attr("data-cover");
+	        if (localStorage.getItem("favJSON") === null) {
+	            var n = [{
+	                id: e,
+	                cover: t
+	            }];
+	            window.localStorage.setItem("favJSON", JSON.stringify(n));
+	            var r = window.localStorage.getItem("favJSON");
+	            $(this).val('Added');
+	            $(this).addClass('sun_Active');
+	        } else {
+	            var n = [{
+	                id: e,
+	                cover: t
+	            }];
+	            var i = JSON.parse(localStorage.getItem("favJSON"));
+	            var s = 0;
+	            for (var o in i) {
+	                if (i[o].id === e) {
+	                    s = s + 1
+	                }
+	            }
+	            if (s === 0) {
+	                var u = $.merge(i, n);
+	                window.localStorage.setItem("favJSON", JSON.stringify(u));
+	                var r = localStorage.getItem("favJSON");
+	                $(this).val('Added');
+	                $(this).addClass('sun_Active');
+	            }
+	            
+	        }
+	        alert('Inside Debug Favorites!');
+	    });
 	    
-	   
-	alert('NO ERRORES!');
-		
+	    
+	    
+	    if (localStorage.getItem("favJSON") !== null) {
+	    	$('.fixed-header').append('<a onclick="$(\'.content\').css(\'display\',\'none\');$(\'#favorites\').fadeIn();" class="deploy-contact"></a>');
+	        var n = JSON.parse(localStorage.getItem("favJSON"));
+	        var switcher = 0;
+	        for (var t in n) {
+	        	 if(switcher%2){
+                    var AddClass = 'last-column';
+                }else AddClass = '';
+               
+	        $(".catFav").append('<div class="portfolio-item-thumb one-half ' + AddClass + '"> \
+				                    <a href="http://www.titlurile-zilei.com/assets/upload/mobile/' + n[t].cover + '" class="swipebox" rel="favorites"> \
+				                        <img class="responsive-image" src="http://www.titlurile-zilei.com/assets/upload/mobile/' + n[t].cover + '" alt="img"> \
+				                    </a> \
+				                </div>');
+				                switcher = switcher + 1;
+				 
+	        }
+	    }
+	    
+	    $(".swipebox").swipebox({
+			useCSS : true, // false will force the use of jQuery for animations
+			hideBarsDelay : 3000 // 0 to always show caption and action bar
+		});
 
 	
 });
