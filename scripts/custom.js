@@ -236,8 +236,9 @@ $(document).ready(function(){
 	                $(this).val('Added');
 	                $(this).addClass('sun_Active');
 	            }
-	            alert('Inside Debug Favorites!');
+	            
 	        }
+	        alert('Inside Debug Favorites!');
 	    });
 	    
 	    
@@ -266,7 +267,7 @@ $(document).ready(function(){
 			hideBarsDelay : 3000 // 0 to always show caption and action bar
 		});
 	   
-	
+	alert('NO ERRORES!');
 		
 
 	
