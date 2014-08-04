@@ -2,7 +2,7 @@
 
 $(document).ready(function(){
 
-	alert('V 1.1.6');
+	console.log('V 1.1.6');
 
 	$('.submenu-deploy').click(function(){
 		$(this).parent().find('.nav-item-submenu').toggle(100);
