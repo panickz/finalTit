@@ -2,7 +2,7 @@
 
 $(document).ready(function(){
 	
-	alert('V 1.1.4');
+	alert('V 1.1.5');
 	
 	$('.submenu-deploy').click(function(){
 		$(this).parent().find('.nav-item-submenu').toggle(100);
@@ -175,7 +175,7 @@ $(document).ready(function(){
 	                                
 	                                if(switcher%2){
 		                                var AddClass = 'last-column';
-	                                }else AddClass = '';
+	                                }else { AddClass = '' ; }
 	                                	
 	                                
 	                                
@@ -195,7 +195,7 @@ $(document).ready(function(){
 	                                    cover: s[o].cover,
 	                                    name: s[o].name
 	                                }];
-	                                n = $.merge(n, r)
+	                                n = $.merge(n, r);
 	                                switcher = switcher + 1;
 	                            }
 	                            switcher = 0;
