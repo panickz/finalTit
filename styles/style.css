@@ -35,6 +35,9 @@ body {
 .favList > li
 { list-style: none;}
 
+.snapjs-left{position: fixed}
+.snapjs-right{position: fixed}
+
 .page-sidebar{
 	background-image:url(../images/misc/menu-bg.png);
 	background-repeat:repeat;
@@ -47,11 +50,6 @@ body {
 	left:0px;
     -webkit-overflow-scrolling: touch;
     overflow-y: scroll;
-    -webkit-transform: translate3d(0,0,0);
-    -moz-transform: translate3d(0,0,0);
-    -ms-transform: translate3d(0,0,0);
-    -o-transform: translate3d(0,0,0);
-    transform: translate3d(0,0,0);
 	bottom:0px;
 	overflow:hidden;
 	position:fixed;
@@ -68,11 +66,6 @@ body {
     top:0px;
     -webkit-overflow-scrolling: touch;
     overflow-y: scroll;
-    -webkit-transform: translate3d(0,0,0);
-    -moz-transform: translate3d(0,0,0);
-    -ms-transform: translate3d(0,0,0);
-    -o-transform: translate3d(0,0,0);
-    transform: translate3d(0,0,0);
     right:0px;
     bottom:0px;
     overflow:hidden;

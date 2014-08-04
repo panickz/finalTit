@@ -18,13 +18,9 @@ $(document).ready(function(){
 		//$(this).toggleClass('remove-sidebar');
 		if( snapper.state().state=="left" ){
 			snapper.close();
-            $('body').css('position','inherit');
-            console.log('inherit');
 
 		} else {
 			snapper.open('left');
-            $('body').css('position','fixed');
-            console.log('inherit');
 		}
 		return false;
 	});
@@ -281,13 +277,9 @@ $(document).ready(function(){
         //$(this).toggleClass('remove-sidebar');
         if( snapper.state().state=="right" ){
             snapper.close();
-            $('body').css('position','inherit');
-            console.log('inherit');
 
         } else {
             snapper.open('right');
-            $('body').css('position','fixed');
-            console.log('inherit');
         }
         return false;
     });
@@ -297,20 +289,6 @@ $(document).ready(function(){
         hideBarsDelay : 3000 // 0 to always show caption and action bar
     });
 
-    snapper.on('open', function(){
-        $('body').css('position','fixed');
-        console.log('fixed');
-    });
-
-    snapper.on('drag', function(){
-        $('body').css('position','fixed');
-        console.log('fixed');
-    });
-
-    snapper.on('close', function(){
-        $('body').css('position','inherit');
-        console.log('inherit');
-    });
 
 
 });
