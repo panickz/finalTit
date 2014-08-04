@@ -136,6 +136,9 @@ $(document).ready(function(){
             }else { AddClass = ''; }
 
             $(".cat" + e[t].id).append('<div class="portfolio-item-thumb one-half '+AddClass+'"> \
+	             	<p style="margin:10px 0 0 0;" > \
+                        <input type="button" value="'+favTxt+'" class="sun_BTN '+classSun+'" data-id="' + e[t].hook + '" data-cover="' + e[t].cover + '"> \
+                    </p> \
                     <a href="http://www.titlurile-zilei.com/assets/upload/mobile/' + e[t].cover + '" title="'+ e[t].name+'" class="swipebox" rel="gal' + e[t].id + '"> \
                         <img class="responsive-image" src="http://www.titlurile-zilei.com/assets/upload/mobile/' + e[t].cover + '" onError="this.onerror=null;this.src=\'images/noImg.png\';" alt="img"> \
                     </a> \
@@ -177,7 +180,15 @@ $(document).ready(function(){
                                 }else AddClass = '';
 
                                 $('.log').append('<div>'+ s[o].hook +' - '+ s[o].name +' - '+ e[i].id +' - '+ s[o].cover +'</div>');
-
+                                alert('<div class="portfolio-item-thumb one-half '+AddClass+'"><p style="margin:10px 0 0 0;"> \
+													                    <input type="button" value="Favorite +" class="sun_BTN favIt" data-id="' + s[o].hook + '" data-cover="' + s[o].cover + '"> \
+													                </p> \
+												                    <a href="http://www.titlurile-zilei.com/assets/upload/mobile/' + s[o].cover + '" title="'+ e[t].name+'" class="swipebox" rel="gal' + e[i].id + '"> \
+												                        <img class="responsive-image" src="http://www.titlurile-zilei.com/assets/upload/mobile/' + s[o].cover + '"> \
+												                    </a> \
+												                    <h4>'+ s[o].name + '</h4> \
+												                </div>');
+                                
 
                                 $(".cat" + e[i].id).append('<div class="portfolio-item-thumb one-half '+AddClass+'"><p style="margin:10px 0 0 0;"> \
 													                    <input type="button" value="Favorite +" class="sun_BTN favIt" data-id="' + s[o].hook + '" data-cover="' + s[o].cover + '"> \
