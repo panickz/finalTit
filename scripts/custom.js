@@ -95,12 +95,16 @@ $(document).ready(function(){
 	        
 	        var switcher = 0;
 	        var theCat = null;
+	        var s = 0;
+	        var i = JSON.parse(localStorage.getItem("favJSON"));
+	        var AddClass = '';
+	        
 	        for (var t in e) {
 	            
-	            if (localStorage.getItem("favJSON") !== null) {
+	            if (i !== null) {
 	            	
-	            	var i = JSON.parse(localStorage.getItem("favJSON"));
-		            var s = 0;
+	            	
+		            s = 0;
 		            
 		            for (var o in i) {
 		                if (i[o].id === e[t].hook) {
@@ -124,8 +128,8 @@ $(document).ready(function(){
 	            if(theCat!=e[t].id){ switcher = 0; }
 	            
 	            if(switcher%2){
-                    var AddClass = 'last-column';
-                }else AddClass = '';
+                    AddClass = 'last-column';
+                }else { AddClass = ''; }
 	            
 	             $(".cat" + e[t].id).append('<div class="portfolio-item-thumb one-half '+AddClass+'"> \
 	             	<p style="margin:10px 0 0 0;" > \
@@ -134,7 +138,7 @@ $(document).ready(function(){
                     <a href="http://www.titlurile-zilei.com/assets/upload/mobile/' + e[t].cover + '" title="'+ e[t].name+'" class="swipebox" rel="gal' + e[t].id + '"> \
                         <img class="responsive-image" src="http://www.titlurile-zilei.com/assets/upload/mobile/' + e[t].cover + '" onError="this.onerror=null;this.src=\'images/noImg.png\';" alt="img"> \
                     </a> \
-                    <h4>'+ e[t].name.substr(0,16) + '</h4> \
+                    <h4>'+ e[t].name + '</h4> \
                 </div>');
                 
                 theCat =  e[t].id;
@@ -151,8 +155,8 @@ $(document).ready(function(){
 	            dataType: "JSON",
 	            success: function (e) {
 	                var t = 1;
-	                var n = new Array;
-	                var r = new Array;
+	                var n = new Array();
+	                var r = new Array();
 	                for (var i in e) {
 	                   	$('.cats').append('<a onclick="$(\'.content\').css(\'display\',\'none\');$(\'#page'+ e[i].id +'\').fadeIn();$(\'.deploy-sidebar\').trigger(\'click\');">' + e[i].category + '<em class="unselected-sub-nav"></em></a>');
 	                    $.ajax({
@@ -178,7 +182,7 @@ $(document).ready(function(){
 												                    <a href="http://www.titlurile-zilei.com/assets/upload/mobile/' + s[o].cover + '" title="'+ e[t].name+'" class="swipebox" rel="gal' + e[i].id + '"> \
 												                        <img class="responsive-image" src="http://www.titlurile-zilei.com/assets/upload/mobile/' + s[o].cover + '" alt="img" onError="this.onerror=null;this.src=\'images/noImg.png\';"> \
 												                    </a> \
-												                    <h4>'+ s[o].name.substr(0,146) + '</h4> \
+												                    <h4>'+ s[o].name + '</h4> \
 												                </div>');
 	                                
 	                                r = [{
@@ -200,7 +204,7 @@ $(document).ready(function(){
 	            }
 	        })
 	    }  
-		/*
+		
 	    $(".favIt").click(function () {
 	        var e = $(this).attr("data-id");
 	        var t = $(this).attr("data-cover");
@@ -232,9 +236,11 @@ $(document).ready(function(){
 	                $(this).val('Added');
 	                $(this).addClass('sun_Active');
 	            }
-	            
+	            alert('Inside Debug Favorites!');
 	        }
 	    });
+	    
+	    
 	    
 	    if (localStorage.getItem("favJSON") !== null) {
 	    	$('.fixed-header').append('<a onclick="$(\'.content\').css(\'display\',\'none\');$(\'#favorites\').fadeIn();" class="deploy-contact"></a>');
@@ -254,12 +260,14 @@ $(document).ready(function(){
 				 
 	        }
 	    }
-	    */
-	
-		$(".swipebox").swipebox({
+	    
+	    $(".swipebox").swipebox({
 			useCSS : true, // false will force the use of jQuery for animations
 			hideBarsDelay : 3000 // 0 to always show caption and action bar
 		});
+	   
+	
+		
 
 	
 });
