@@ -179,7 +179,7 @@ $(document).ready(function(){
                                     var AddClass = 'last-column';
                                 }else AddClass = '';
 
-                                $('.log').append('<div>'+ s[o].hook +' - '+ s[o].name +'</div>');
+                                $('.log').append('<div>'+ s[o].hook +' - '+ s[o].name +' - '+ e[i].id +' - '+ s[o].cover +'</div>');
 
 
                                 $(".cat" + e[i].id).append('<div class="portfolio-item-thumb one-half '+AddClass+'"> \
@@ -187,7 +187,7 @@ $(document).ready(function(){
 													                    <input type="button" value="Favorite +" class="sun_BTN favIt" data-id="' + s[o].hook + '" data-cover="' + s[o].cover + '"> \
 													                </p> \
 												                    <a href="http://www.titlurile-zilei.com/assets/upload/mobile/' + s[o].cover + '" title="'+ e[t].name+'" class="swipebox" rel="gal' + e[i].id + '"> \
-												                        <img class="responsive-image" src="http://www.titlurile-zilei.com/assets/upload/mobile/' + s[o].cover + '" alt="img" onError="this.onerror=null;this.src=\'images/noImg.png\';"> \
+												                        <img class="responsive-image" src="http://www.titlurile-zilei.com/assets/upload/mobile/' + s[o].cover + '"> \
 												                    </a> \
 												                    <h4>'+ s[o].name + '</h4> \
 												                </div>');
