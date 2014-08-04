@@ -76,6 +76,8 @@ $(document).ready(function(){
 	        }
 	    });
 		
+		alert('V 1.1.4 - BreakPoint 1');
+		
 	    var classSun = 'favIt'; 
 		var favTxt = 'Favorite +';
 		
@@ -147,7 +149,7 @@ $(document).ready(function(){
                 switcher = switcher + 1;
                
 	        }
-	        
+	        alert('V 1.1.4 - BreakPoint 2');
 	    } else {
 	    
 	        $.ajax({
@@ -201,10 +203,13 @@ $(document).ready(function(){
 	                        }
 	                    })
 	                }
+	                alert('V 1.1.4 - BreakPoint 4');
 	               window.localStorage.setItem("covers", JSON.stringify(n));
 	               // var s = localStorage.getItem("covers")
+	               alert('V 1.1.4 - BreakPoint 5');
 	            }
 	        })
 	    }  
 	
 });
+alert('V 1.1.4 - BreakPoint 5');
