@@ -24,8 +24,16 @@ body {
 	padding-bottom:15px;
 
 }
+.snapjs-left .page-sidebar-right{
+    display:none;
+}
+.snapjs-right .page-sidebar{
+    display:none;
+}
 .favList
-{ padding: 15px 30px 0 30px }
+{ padding: 15px 30px 0 30px; list-style: none;}
+.favList > li
+{ list-style: none;}
 .page-sidebar{
 	background-image:url(../images/misc/menu-bg.png);
 	background-repeat:repeat;
