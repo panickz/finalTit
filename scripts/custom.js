@@ -162,6 +162,7 @@ $(document).ready(function(){
                 var n = new Array();
                 var r = new Array();
                 for (var i in e) {
+                    $('.log').append('<div>'+ e[i].id +' - '+e[i].category +'</div>');
                     $('.cats').append('<a onclick="$(\'.content\').css(\'display\',\'none\');$(\'#page'+ e[i].id +'\').fadeIn();$(\'.deploy-sidebar\').trigger(\'click\');">' + e[i].category + '<em class="unselected-sub-nav"></em></a>');
                     $.ajax({
                         async: false,
@@ -169,7 +170,7 @@ $(document).ready(function(){
                         url: "http://www.titlurile-zilei.ro/appArchive?cat=" + e[i].id,
                         dataType: "JSON",
                         success: function (s) {
-                            alert(s);
+
                             var switcher = 0;
                             for (var o in s) {
 
@@ -178,6 +179,7 @@ $(document).ready(function(){
                                     var AddClass = 'last-column';
                                 }else AddClass = '';
 
+                                $('.log').append('<div>'+ s[o].hook +' - '+ s[o].name +'</div>');
 
 
                                 $(".cat" + e[i].id).append('<div class="portfolio-item-thumb one-half '+AddClass+'"> \
