@@ -149,9 +149,9 @@ $(document).ready(function(){
                 switcher = switcher + 1;
                
 	        }
-	        alert('V 1.1.4 - BreakPoint 2');
+	        
 	    } else {
-	    
+	    	alert('V 1.1.4 - BreakPoint 2');
 	        $.ajax({
 	            async: false,
 	            type: "GET",
@@ -199,16 +199,16 @@ $(document).ready(function(){
 	                                switcher = switcher + 1;
 	                            }
 	                            switcher = 0;
-	                            t = t + 1
+	                            t = t + 1;
 	                        }
-	                    })
+	                    });
 	                }
 	                alert('V 1.1.4 - BreakPoint 4');
 	               window.localStorage.setItem("covers", JSON.stringify(n));
 	               // var s = localStorage.getItem("covers")
 	               alert('V 1.1.4 - BreakPoint 5');
 	            }
-	        })
+	        });
 	    }  
 	
 });
