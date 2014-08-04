@@ -41,38 +41,14 @@ document.addEventListener("deviceready", onDeviceReady, false);
                 <h4 class="center-text temperature"></h4>
                 <em class="center-text data"></em>
             </div>
-            <div class="sidebar-breadcrumb">
-            	<div class="sidebar-decoration"></div>
-                <p>Navigation</p>
-                <div class="sidebar-decoration"></div>
-            </div>
             <div class="navigation-items">
                 <div class="nav-item">
-                    <a href="#" class="gallery-nav submenu-deploy">Categories<em></em></a>
-                    <div class="nav-item-submenu cats">
+                    <div class="nav-item-submenu cats" style="overflow: hidden; display: block;">
                     	<div class="sidebar-decoration"></div>
-                    	
                     </div>
                 </div>
                 <div class="sidebar-decoration"></div>
-                <div class="nav-item">
-                    <a href="#" class="close-nav">Close<em class="unselected-nav"></em></a>
-                </div> 
-            </div>      
-            <div class="sidebar-breadcrumb">
-            	<div class="sidebar-decoration"></div>
-                <p>Let's get social!</p>
-                <div class="sidebar-decoration"></div>
-            </div>  
-            <div class="navigation-items">
-                <div class="nav-item">
-                    <a href="#" onclick="window.open('https://www.facebook.com/TitlurileZilei', '_system');" target="_blank" class="facebook-nav">Facebook<em class="link-nav"></em></a>
-                </div> 
-                <div class="sidebar-decoration"></div>
-                <div class="nav-item">
-                    <a href="#" onclick="window.open('http://www.pinterest.com/TitlurileZilei/', '_system');" target="_blank" class="twitter-nav">Pinterest<em class="link-nav"></em></a>
-                </div> 
-            </div>  
+            </div>
         </div>
     </div>
 
@@ -204,9 +180,9 @@ $(document).ready(function(){
 	                id: e,
 	                cover: t
 	            }];
-                if(localStorage.getItem("favJSON") === null){
+
                     $('.fixed-header').append('<a onclick="$(\'.content\').css(\'display\',\'none\');$(\'#favorites\').fadeIn();" class="deploy-contact"></a>');
-                }
+
                     $(".catFav").append('<div class="portfolio-item-thumb one-half ' + AddClass + '"> \
                         <a href="http://www.titlurile-zilei.com/assets/upload/mobile/' + t + '" class="swipebox" rel="favorites"> \
                             <img class="responsive-image" src="http://www.titlurile-zilei.com/assets/upload/mobile/' + t + '" alt="img"> \
@@ -222,6 +198,7 @@ $(document).ready(function(){
 	            var r = window.localStorage.getItem("favJSON");
 	            $(this).val('Added');
 	            $(this).addClass('sun_Active');
+
 	        } else {
 	            var n = [{
 	                id: e,

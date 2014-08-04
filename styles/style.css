@@ -398,12 +398,12 @@ and (width : 798px){
 .sidebar-logo{
 	margin-left:auto;
 	margin-right:auto;
-	margin-top:20px;
+	margin-top:0px;
 	margin-bottom: -5px;
 }
 
 .sidebar-header{
-	margin-bottom:20px;
+	margin-bottom:15px;
 }
 
 .sidebar-header h4{
