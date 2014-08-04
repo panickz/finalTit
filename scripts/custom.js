@@ -200,7 +200,7 @@ $(document).ready(function(){
 	            }
 	        })
 	    }  
-
+		/*
 	    $(".favIt").click(function () {
 	        var e = $(this).attr("data-id");
 	        var t = $(this).attr("data-cover");
@@ -254,6 +254,7 @@ $(document).ready(function(){
 				 
 	        }
 	    }
+	    */
 	
 		$(".swipebox").swipebox({
 			useCSS : true, // false will force the use of jQuery for animations
