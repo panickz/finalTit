@@ -186,7 +186,6 @@ document.addEventListener("deviceready", onDeviceReady, false);
                     <a href='#' onclick="window.open('http://www.pinterest.com/TitlurileZilei/', '_system');" rel='external' class="twitter-footer"></a>
                 </div>
                 <p class="copyright uppercase center-text no-bottom">Titlurile Zilei 2013<br> All rights reserved</p>
-                <div class="log"></div>
 			</div>
 		</div>        
     </div>  
@@ -196,10 +195,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 </html>
 <script>
 $(document).ready(function(){
- 
-alert('V 1.1.4 - BreakPoint 6');
-setTimeout(function(){ 
-alert('V 1.1.4 - BreakPoint 7');
+
   $(".favIt").click(function () {
 	        var e = $(this).attr("data-id");
 	        var t = $(this).attr("data-cover");
@@ -235,8 +231,7 @@ alert('V 1.1.4 - BreakPoint 7');
 	        }
 	        alert('Inside Debug Favorites!');
 	    });
-	    
-	    alert('V 1.1.4 - BreakPoint 8');
+
 	    
 	    if (localStorage.getItem("favJSON") !== null) {
 	    	$('.fixed-header').append('<a onclick="$(\'.content\').css(\'display\',\'none\');$(\'#favorites\').fadeIn();" class="deploy-contact"></a>');
@@ -256,13 +251,11 @@ alert('V 1.1.4 - BreakPoint 7');
 				 
 	        }
 	    }
-	    alert('V 1.1.4 - BreakPoint 9');
 	    $(".swipebox").swipebox({
 			useCSS : true, // false will force the use of jQuery for animations
 			hideBarsDelay : 3000 // 0 to always show caption and action bar
 		});
 
-	},5000 );
 
 });
 </script>
