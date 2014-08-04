@@ -34,6 +34,7 @@ body {
 { padding: 15px 30px 0 30px; list-style: none;}
 .favList > li
 { list-style: none;}
+
 .page-sidebar{
 	background-image:url(../images/misc/menu-bg.png);
 	background-repeat:repeat;
@@ -44,6 +45,13 @@ body {
 	z-index:2;
 	top:0px;
 	left:0px;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: scroll;
+    -webkit-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+    -ms-transform: translate3d(0,0,0);
+    -o-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
 	bottom:0px;
 	overflow:hidden;
 	position:fixed;
@@ -58,6 +66,13 @@ body {
     position:absolute;
     z-index:2;
     top:0px;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: scroll;
+    -webkit-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+    -ms-transform: translate3d(0,0,0);
+    -o-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
     right:0px;
     bottom:0px;
     overflow:hidden;
