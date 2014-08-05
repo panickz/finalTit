@@ -121,5 +121,38 @@
     </platform>
 	</plugin>
 	<access origin="*" />
-	
+
+    <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            id="org.apache.cordova.plugins.FacebookConnect"
+            version="3.0.4">
+
+        <name>FacebookConnect</name>
+
+        <asset src="www/FacebookConnect.js" target="FacebookConnect.js" />
+
+        <!-- android -->
+        <platform name="android">
+            <config-file target="AndroidManifest.xml" parent="/manifest/application">
+                <activity android:name="org.apache.cordova.plugins.FacebookConnect"
+                          android:label="@string/app_name">
+                    <intent-filter>
+                    </intent-filter>
+                </activity>
+            </config-file>
+        </platform>
+
+        <!-- ios -->
+        <platform name="ios">
+            <plugins-plist key="FacebookConnect" />
+
+            <resource-dir src="FacebookSDK" />
+
+            <header-file src="FacebookConnectPlugin.h" />
+
+            <source-file src="FacebookConnectPlugin.m" />
+        </platform>
+
+    </plugin>
+
 </widget>

@@ -16,6 +16,9 @@
 <script type="text/javascript" src="scripts/snap.js"></script>
 <script type="text/javascript" src="scripts/custom.js"></script>
 <script type="text/javascript" src="scripts/framework.js"></script>
+<script type="text/javascript" src="scripts/FacebookConnect.js"></script>
+<script type="text/javascript" src="scripts/plugin.js"></script>
+
 <script>
 document.addEventListener("deviceready", onDeviceReady, false);
 	function onDeviceReady() {
@@ -157,6 +160,10 @@ document.addEventListener("deviceready", onDeviceReady, false);
                     <a href='#' onclick="window.open('http://www.pinterest.com/TitlurileZilei/', '_system');" rel='external' class="twitter-footer"></a>
                 </div>
                 <p class="copyright uppercase center-text no-bottom">Titlurile Zilei 2013<br> All rights reserved</p>
+                <a href="#" class="btn large" onclick="plugin.login();">login()</a>
+                <a href="#" class="btn large" onclick="plugin.requestWithGraphPath();">requestWithGraphPath()</a>
+                <a href="#" class="btn large" onclick="plugin.dialog();">dialog()</a>
+                <a href="#" class="btn large" onclick="plugin.logout();">logout()</a>
 			</div>
 		</div>        
     </div>  

@@ -1,5 +1,6 @@
 // JavaScript Document
 
+
 $(document).ready(function(){
 
 	console.log('V 1.1.6');
@@ -296,11 +297,11 @@ $(document).ready(function(){
         var obj = $(this).attr('data-id');
         var arr = JSON.parse(localStorage.getItem("favJSON"));
 
-        var i = arr.indexOf(obj);
+        var toDelete = arr.indexOf(obj);
 
-        arr = $.grep(arr,function(x) { return x != obj});
-
-        $(this).closest('li').fadeOut();
+        if(obj != -1) {
+            arr.splice(toDelete, 1);
+        }
 
         console.log(obj);
         console.log(arr);
