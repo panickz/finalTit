@@ -31,7 +31,7 @@ body {
     display:none;
 }
 .favList
-{ padding: 15px 40px 0 30px; list-style: none;}
+{ padding: 15px 45px 0 30px; list-style: none;}
 .favList > li
 { list-style: none;}
 
@@ -367,6 +367,9 @@ and (width : 798px){
     position: absolute;
     z-index: 99;
     margin: -2px 0 0 -2px;
+}
+.deleteFav > img{
+    width:51px;
 }
 
 .goup-footer{
