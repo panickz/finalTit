@@ -264,6 +264,7 @@ $(document).ready(function(){
 
 
             $(".favList").append('<li> \
+                                    <div class="deleteFav"><img src="images/misc/delete.png"></div>   \
 				                    <a href="http://www.titlurile-zilei.com/assets/upload/mobile/' + n[t].cover + '" class="swipebox" rel="favorites"> \
 				                        <img class="responsive-image" src="http://www.titlurile-zilei.com/assets/upload/mobile/' + n[t].cover + '" alt="img"> \
 				                    </a> \

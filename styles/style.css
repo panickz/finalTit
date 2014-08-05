@@ -31,7 +31,7 @@ body {
     display:none;
 }
 .favList
-{ padding: 15px 30px 0 30px; list-style: none;}
+{ padding: 15px 40px 0 30px; list-style: none;}
 .favList > li
 { list-style: none;}
 
@@ -359,9 +359,14 @@ and (width : 798px){
 .facebook-footer{
 	background-image:url(../images/misc/facebook.png);
 	background-repeat:no-repeat;
-	background-size:25px 26px;
+	background-size:25px 25px;
 	height:25px;
 	width:25px;
+}
+.deleteFav{
+    position: absolute;
+    z-index: 99;
+    margin: -2px 0 0 -2px;
 }
 
 .goup-footer{
