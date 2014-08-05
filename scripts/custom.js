@@ -108,7 +108,7 @@ $(document).ready(function(){
 	             	<p style="margin:10px 0 0 0;" > \
                         <input type="button" value="'+favTxt+'" class="sun_BTN '+classSun+'" data-id="' + e[t].hook + '" data-cover="' + e[t].cover + '"> \
                     </p> \
-                    <a href="http://www.titlurile-zilei.com/assets/upload/mobile/' + e[t].cover + '" title="'+ e[t].name+'" class="swipebox" rel="gal' + e[t].id + '"> \
+                    <a href="http://www.titlurile-zilei.com/assets/upload/mobile/' + e[t].cover + '" class="swipebox" rel="gal' + e[t].id + '"> \
                         <img class="responsive-image" src="http://www.titlurile-zilei.com/assets/upload/mobile/' + e[t].cover + '" onError="this.onerror=null;this.src=\'images/noImg.png\';" alt="img"> \
                     </a> \
                     <h4>'+ e[t].name + '</h4> \
@@ -153,7 +153,7 @@ $(document).ready(function(){
 	                                								<p style="margin:10px 0 0 0;"> \
 													                    <input type="button" value="Favorite +" class="sun_BTN favIt" data-id="' + s[o].hook + '" data-cover="' + s[o].cover + '"> \
 													                </p> \
-												                    <a href="http://www.titlurile-zilei.com/assets/upload/mobile/' + s[o].cover + '" title="'+ s[o].name+'" class="swipebox" rel="gal' + e[i].id + '"> \
+												                    <a href="http://www.titlurile-zilei.com/assets/upload/mobile/' + s[o].cover + '" class="swipebox" rel="gal' + e[i].id + '"> \
 												                        <img class="responsive-image" src="http://www.titlurile-zilei.com/assets/upload/mobile/' + s[o].cover + '" alt="img" onError="this.onerror=null;this.src=\'images/noImg.png\';"> \
 												                    </a> \
 												                    <h4>'+ s[o].name + '</h4> \
