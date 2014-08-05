@@ -26,11 +26,11 @@
             alert('Device is ready! Make sure you set your app_id below this alert.');
             //Put your FB APP_ID here!
             FB.init({ appId: "899133160113324", nativeInterface: CDV.FB, useCachedDialogs: false });
-            document.getElementById('data').innerHTML = "";
+
         } catch (e) {
             alert(e);
         }
-        
+
         navigator.splashscreen.hide();
 
     }
@@ -305,5 +305,6 @@
     }
 
 </script>
+<div id="data"></div>
 </body>
 </html>
