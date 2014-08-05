@@ -7,14 +7,16 @@
 
     <!-- versionCode is optional and Android only -->
 
-    <name>Titlurile Zilei</name>
+    <name>
+        Titlurile Zilei
+    </name>
 
 	<description>
-	Aici sunt cele mai recente cazuri de cele mai mari ziare din Brazilia pentru gratuit. Nu plati pentru a fii informat. 
+	    Aici sunt cele mai recente cazuri de cele mai mari ziare din Brazilia pentru gratuit. Nu plati pentru a fii informat.
 	</description>
 	
 	<author href="https://www.salesengineonline.com" email="it@salesengineonline.com">
-	Sales Engine Online
+	    Sales Engine Online
 	</author>
 	
 	<gap:plugin name="com.phonegap.plugin.statusbar" />
