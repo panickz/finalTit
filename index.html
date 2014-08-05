@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0"/>
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 <title>Epsilon Mobile Framework - Version 2.0</title>
 
 <link href="styles/style.css"     		rel="stylesheet" type="text/css">
@@ -16,7 +16,6 @@
 <script type="text/javascript" src="scripts/snap.js"></script>
 <script type="text/javascript" src="scripts/custom.js"></script>
 <script type="text/javascript" src="scripts/framework.js"></script>
-<script type="text/javascript" src="scripts/FacebookConnect.js"></script>
 <script type="text/javascript" src="scripts/plugin.js"></script>
 
 <script>
@@ -27,6 +26,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
 </script>
 </head> 
 <body>
+
+<div id="fb-root"></div>
 
 <div class="all-elements">
     <div id="sidebar" class="page-sidebar">
@@ -159,15 +160,61 @@ document.addEventListener("deviceready", onDeviceReady, false);
                     <a href='#' onclick="window.open('https://www.facebook.com/TitlurileZilei', '_system');" rel='external' class="facebook-footer"></a>
                     <a href='#' onclick="window.open('http://www.pinterest.com/TitlurileZilei/', '_system');" rel='external' class="twitter-footer"></a>
                 </div>
+                <div class="event listening " onclick="login();">Login with Facebook</div>
+                <div class="event listening " onclick="showDialog();">Show Dialog with Facebook</div>
+                <div class="event listening " onclick="apiTest();">Test API with Facebook</div>
+                <div class="event listening " onclick="getAccessToken();">Get access token with Facebook</div>
+                <div class="event listening " onclick="getStatus();">Get login status with Facebook</div>
+                <div class="event listening " onclick="logout();">Logout with Facebook</div>
                 <p class="copyright uppercase center-text no-bottom">Titlurile Zilei 2013<br> All rights reserved</p>
-                <a href="#" class="btn large" onclick="plugin.login();">login()</a>
-                <a href="#" class="btn large" onclick="plugin.requestWithGraphPath();">requestWithGraphPath()</a>
-                <a href="#" class="btn large" onclick="plugin.dialog();">dialog()</a>
-                <a href="#" class="btn large" onclick="plugin.logout();">logout()</a>
+
 			</div>
 		</div>        
     </div>  
 </div>
+<script type="text/javascript" src="scripts/facebookConnectPlugin.js"></script>
+<script type="text/javascript">
+    var login = function () {
+        if (!window.cordova) {
+            var appId = prompt("Enter FB Application ID", "");
+            facebookConnectPlugin.browserInit(appId);
+        }
+        facebookConnectPlugin.login( ["email"],
+                function (response) { alert(JSON.stringify(response)) },
+                function (response) { alert(JSON.stringify(response)) });
+    }
+
+    var showDialog = function () {
+        facebookConnectPlugin.showDialog( { method: "feed" },
+                function (response) { alert(JSON.stringify(response)) },
+                function (response) { alert(JSON.stringify(response)) });
+    }
+
+    var apiTest = function () {
+        facebookConnectPlugin.api( "me/?fields=id,email", ["user_birthday"],
+                function (response) { alert(JSON.stringify(response)) },
+                function (response) { alert(JSON.stringify(response)) });
+    }
+
+    var getAccessToken = function () {
+        facebookConnectPlugin.getAccessToken(
+                function (response) { alert(JSON.stringify(response)) },
+                function (response) { alert(JSON.stringify(response)) });
+    }
+
+    var getStatus = function () {
+        facebookConnectPlugin.getLoginStatus(
+                function (response) { alert(JSON.stringify(response)) },
+                function (response) { alert(JSON.stringify(response)) });
+    }
+
+    var logout = function () {
+        facebookConnectPlugin.logout(
+                function (response) { alert(JSON.stringify(response)) },
+                function (response) { alert(JSON.stringify(response)) });
+    }
+
+</script>
 
 </body>
 </html>
