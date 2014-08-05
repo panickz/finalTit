@@ -260,11 +260,12 @@ $(document).ready(function(){
         $('.fixed-header').append('<a class="deploy-contact"></a>');
         var n = JSON.parse(localStorage.getItem("favJSON"));
         var switcher = 0;
+        console.log(n);
         for (var t in n) {
 
 
             $(".favList").append('<li> \
-                                    <div class="deleteFav"><img src="images/misc/delete.png"></div>   \
+                                    <div class="deleteFav" data-id="'+t+'"><img src="images/misc/delete.png"></div>   \
 				                    <a href="http://www.titlurile-zilei.com/assets/upload/mobile/' + n[t].cover + '" class="swipebox" rel="favorites"> \
 				                        <img class="responsive-image" src="http://www.titlurile-zilei.com/assets/upload/mobile/' + n[t].cover + '" alt="img"> \
 				                    </a> \
@@ -290,6 +291,17 @@ $(document).ready(function(){
         hideBarsDelay : 3000 // 0 to always show caption and action bar
     });
 
+    $('.deleteFav').click(function(){
 
+        var obj = $(this).attr('data-id');
+        var group = JSON.parse(localStorage.getItem("favJSON"));
+
+        group = $.grep(group, function(obj) {
+            return value != removeItem;
+        });
+
+        window.localStorage.setItem("favJSON", JSON.stringify(group));
+
+    });
 
 });
