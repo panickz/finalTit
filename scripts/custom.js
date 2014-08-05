@@ -294,14 +294,26 @@ $(document).ready(function(){
     $('.deleteFav').click(function(){
 
         var obj = $(this).attr('data-id');
-        var group = JSON.parse(localStorage.getItem("favJSON"));
+        var arr = JSON.parse(localStorage.getItem("favJSON"));
 
-        group = $.grep(group, function(obj) {
-            return value != removeItem;
-        });
+        var i = arr.indexOf(obj);
 
-        window.localStorage.setItem("favJSON", JSON.stringify(group));
+        arr = $.grep(arr,function(x) { return x != obj});
+
+        $(this).closest('li').fadeOut();
+
+        console.log(obj);
+        console.log(arr);
+        console.log(arr.length);
+
+        if(arr.length > 0){
+            window.localStorage.setItem("favJSON", JSON.stringify(arr));
+        }else {
+            window.localStorage.removeItem("favJSON");
+        }
 
     });
 
 });
+
+
