@@ -167,7 +167,7 @@ if (!window.cordova) {
     
     // Bake in the JS SDK
     (function () {
-        console.log("launching FB SDK")
+        console.log("launching FB SDK") 
         var e = document.createElement('script');
         e.src = 'https://connect.facebook.net/en_US/sdk.js';
         e.async = true;
