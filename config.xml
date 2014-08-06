@@ -123,7 +123,7 @@
     </platform>
 	</plugin>
 
-    <gap:plugin name="com.phonegap.plugins.facebookconnect" version="0.3.1">
+    <gap:plugin name="com.phonegap.plugins.facebookconnect" version="0.3.0">
         <param name="APP_ID" value="899133160113324" />
         <param name="APP_NAME" value="titlurile-zilei" />
     </gap:plugin>
