@@ -111,7 +111,7 @@ $(document).ready(function(){
 
 	             $(".cat" + e[t].id).append('<div class="portfolio-item-thumb one-half '+AddClass+'"> \
 	             	<p style="margin:10px 0 0 0;" > \
-                        <input type="button" value="'+favTxt+'" class="sun_BTN '+classSun+'" data-id="' + e[t].hook + '" data-cover="' + e[t].cover + '"> \
+                        <input type="button" value="'+favTxt+'" class="sun_BTN '+classSun+'" data-id="' + e[t].hook + '" data-cover="' + e[t].cover + '"  data-name="' + e[t].name + '"> \
                     </p> \
                     <a href="http://www.titlurile-zilei.com/assets/upload/mobile/' + e[t].cover + '" class="swipebox" rel="gal' + e[t].id + '"> \
                         <img class="responsive-image" src="http://www.titlurile-zilei.com/assets/upload/mobile/' + e[t].cover + '" onError="this.onerror=null;this.src=\'images/noImg.png\';" alt="img"> \
@@ -156,7 +156,7 @@ $(document).ready(function(){
 
 	                                $(".cat" + e[i].id).append('<div class="portfolio-item-thumb one-half '+AddClass+'"> \
 	                                								<p style="margin:10px 0 0 0;"> \
-													                    <input type="button" value="Favorite +" class="sun_BTN favIt" data-id="' + s[o].hook + '" data-cover="' + s[o].cover + '"> \
+													                    <input type="button" value="Favorite +" class="sun_BTN favIt" data-id="' + s[o].hook + '" data-cover="' + s[o].cover + '"  data-name="' + s[o].name + '"> \
 													                </p> \
 												                    <a href="http://www.titlurile-zilei.com/assets/upload/mobile/' + s[o].cover + '" class="swipebox" rel="gal' + e[i].id + '"> \
 												                        <img class="responsive-image" src="http://www.titlurile-zilei.com/assets/upload/mobile/' + s[o].cover + '" alt="img" onError="this.onerror=null;this.src=\'images/noImg.png\';"> \
@@ -185,19 +185,27 @@ $(document).ready(function(){
     $(".favIt").click(function () {
         var e = $(this).attr("data-id");
         var t = $(this).attr("data-cover");
+        var nm = $(this).attr("data-name");
+
         if (localStorage.getItem("favJSON") === null) {
             var n = [{
                 id: e,
-                cover: t
+                cover: t,
+                name: nm
             }];
 
             $('.fixed-header').append('<a class="deploy-contact"></a>');
 
+            $(".favList > li").remove();
+
             $(".favList").append('<li> \
-                        <a href="http://www.titlurile-zilei.com/assets/upload/mobile/' + t + '" class="swipebox" rel="favorites"> \
-                            <img class="responsive-image" src="http://www.titlurile-zilei.com/assets/upload/mobile/' + t + '" alt="img"> \
-                        </a> \
-                    </li>');
+                                    <div class="deleteFav" data-id="0" style="width:100%; height: 30px; background:#333333; text-align: center;"><img src="images/trash.png" width="16px" style="margin: 0 auto;margin-top: 7px;"></div>\
+				                    <a href="http://www.titlurile-zilei.com/assets/upload/mobile/' + t + '" class="swipebox" rel="favorites"> \
+				                        <img class="responsive-image" src="http://www.titlurile-zilei.com/assets/upload/mobile/' + t + '" alt="img"> \
+				                    </a> \
+				                    <em class="center-text data" style="padding-bottom: 10px; display:block; font-style: normal;">'+ nm +'</em>    \
+				                     <div class="sidebar-decoration" style="width: 100%;margin-bottom: 10px;"></div>\
+				                </li>');
 
             $('.deploy-contact').click(function(){
                 //$(this).toggleClass('remove-sidebar');
@@ -223,7 +231,8 @@ $(document).ready(function(){
         } else {
             var n = [{
                 id: e,
-                cover: t
+                cover: t,
+                name: nm
             }];
             var i = JSON.parse(localStorage.getItem("favJSON"));
             var s = 0;
@@ -232,6 +241,8 @@ $(document).ready(function(){
                     s = s + 1;
                 }
             }
+
+            var theLength = i.length;
 
             if($(".catFav > div").length % 2){
                 AddClass = 'last-column';
@@ -243,9 +254,12 @@ $(document).ready(function(){
                 var r = localStorage.getItem("favJSON");
 
                 $(".favList").append('<li> \
+                                    <div class="deleteFav" data-id="'+theLength+'" style="width:100%; height: 30px; background:#333333; text-align: center;"><img src="images/trash.png" width="16px" style="margin: 0 auto;margin-top: 7px;"></div>\
 				                    <a href="http://www.titlurile-zilei.com/assets/upload/mobile/' + t + '" class="swipebox" rel="favorites"> \
 				                        <img class="responsive-image" src="http://www.titlurile-zilei.com/assets/upload/mobile/' + t + '" alt="img"> \
 				                    </a> \
+				                    <em class="center-text data" style="padding-bottom: 10px; display:block; font-style: normal;">'+ nm +'</em>    \
+				                     <div class="sidebar-decoration" style="width: 100%;margin-bottom: 10px;"></div>\
 				                </li>');
 
                 $(".swipebox").swipebox({
@@ -270,14 +284,20 @@ $(document).ready(function(){
 
 
             $(".favList").append('<li> \
-                                    <div class="deleteFav" data-id="'+t+'"><img src="images/misc/delete.png"></div>   \
+                                    <div class="deleteFav" data-id="'+t+'" style="width:100%; height: 30px; background:#333333; text-align: center;"><img src="images/trash.png" width="16px" style="margin: 0 auto;margin-top: 7px;"></div>\
 				                    <a href="http://www.titlurile-zilei.com/assets/upload/mobile/' + n[t].cover + '" class="swipebox" rel="favorites"> \
 				                        <img class="responsive-image" src="http://www.titlurile-zilei.com/assets/upload/mobile/' + n[t].cover + '" alt="img"> \
 				                    </a> \
+				                    <em class="center-text data" style="padding-bottom: 10px; display:block; font-style: normal;">'+n[t].name +'</em>    \
+				                     <div class="sidebar-decoration" style="width: 100%;margin-bottom: 10px;"></div>\
 				                </li>');
             switcher = switcher + 1;
 
         }
+    }else{
+        $(".favList").append('<li><em class="center-text data">At the moment you haven´t add any favorite. To do so click in this button before the wished cover:</em><br><br>' +
+            '<input type="button" value="Favorite +" class="sun_BTN">' +
+            '</li>');
     }
 
     $('.deploy-contact').click(function(){
