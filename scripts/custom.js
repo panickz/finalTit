@@ -26,6 +26,10 @@ $(document).ready(function(){
 		return false;
 	});
 
+    snapper.on('close', function(){
+        $("body").removeClass();
+    });
+
 	$.ajax({
 	        async: false,
 	        type: "GET",
