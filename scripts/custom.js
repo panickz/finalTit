@@ -198,7 +198,7 @@ $(document).ready(function(){
 
             $(".favList > li").remove();
 
-            $(".favList").append('<li> \
+            $(".favList").append('<li class="remove0"> \
                                     <div class="deleteFav" data-id="0" style="width:100%; height: 30px; background:#333333; text-align: center;"><img src="images/trash.png" width="16px" style="margin: 0 auto;margin-top: 7px;"></div>\
 				                    <a href="http://www.titlurile-zilei.com/assets/upload/mobile/' + t + '" class="swipebox" rel="favorites"> \
 				                        <img class="responsive-image" src="http://www.titlurile-zilei.com/assets/upload/mobile/' + t + '" alt="img"> \
@@ -224,16 +224,40 @@ $(document).ready(function(){
             });
 
             window.localStorage.setItem("favJSON", JSON.stringify(n));
+
+            $('.deleteFav').click(function(){
+
+                var obj = $(this).attr('data-id');
+                var arr = JSON.parse(localStorage.getItem("favJSON"));
+
+                var toDelete = arr.indexOf(obj);
+
+                $('.remove'+obj).fadeOut();
+
+                arr.splice(toDelete, 1);
+
+                if(arr.length > 0){
+                    window.localStorage.setItem("favJSON", JSON.stringify(arr));
+                }else {
+                    window.localStorage.removeItem("favJSON");
+                }
+
+            });
+
             var r = window.localStorage.getItem("favJSON");
+
             $(this).val('Added');
+
             $(this).addClass('sun_Active');
 
         } else {
+
             var n = [{
                 id: e,
                 cover: t,
                 name: nm
             }];
+
             var i = JSON.parse(localStorage.getItem("favJSON"));
             var s = 0;
             for (var o in i) {
@@ -253,14 +277,33 @@ $(document).ready(function(){
                 window.localStorage.setItem("favJSON", JSON.stringify(u));
                 var r = localStorage.getItem("favJSON");
 
-                $(".favList").append('<li> \
+                $(".favList").append('<li class="remove'+theLength+'"> \
                                     <div class="deleteFav" data-id="'+theLength+'" style="width:100%; height: 30px; background:#333333; text-align: center;"><img src="images/trash.png" width="16px" style="margin: 0 auto;margin-top: 7px;"></div>\
 				                    <a href="http://www.titlurile-zilei.com/assets/upload/mobile/' + t + '" class="swipebox" rel="favorites"> \
 				                        <img class="responsive-image" src="http://www.titlurile-zilei.com/assets/upload/mobile/' + t + '" alt="img"> \
 				                    </a> \
 				                    <em class="center-text data" style="padding-bottom: 10px; display:block; font-style: normal;">'+ nm +'</em>    \
 				                     <div class="sidebar-decoration" style="width: 100%;margin-bottom: 10px;"></div>\
-				                </li>');
+				                </li>')
+
+                $('.deleteFav').click(function(){
+
+                    var obj = $(this).attr('data-id');
+                    var arr = JSON.parse(localStorage.getItem("favJSON"));
+
+                    var toDelete = arr.indexOf(obj);
+
+                    $('.remove'+obj).fadeOut();
+
+                    arr.splice(toDelete, 1);
+
+                    if(arr.length > 0){
+                        window.localStorage.setItem("favJSON", JSON.stringify(arr));
+                    }else {
+                        window.localStorage.removeItem("favJSON");
+                    }
+
+                });
 
                 $(".swipebox").swipebox({
                     useCSS : true, // false will force the use of jQuery for animations
@@ -283,7 +326,7 @@ $(document).ready(function(){
         for (var t in n) {
 
 
-            $(".favList").append('<li> \
+            $(".favList").append('<li class="remove'+switcher+'"> \
                                     <div class="deleteFav" data-id="'+t+'" style="width:100%; height: 30px; background:#333333; text-align: center;"><img src="images/trash.png" width="16px" style="margin: 0 auto;margin-top: 7px;"></div>\
 				                    <a href="http://www.titlurile-zilei.com/assets/upload/mobile/' + n[t].cover + '" class="swipebox" rel="favorites"> \
 				                        <img class="responsive-image" src="http://www.titlurile-zilei.com/assets/upload/mobile/' + n[t].cover + '" alt="img"> \
@@ -323,13 +366,9 @@ $(document).ready(function(){
 
         var toDelete = arr.indexOf(obj);
 
-        if(obj != -1) {
-            arr.splice(toDelete, 1);
-        }
+        $('.remove'+obj).fadeOut();
 
-        console.log(obj);
-        console.log(arr);
-        console.log(arr.length);
+        arr.splice(toDelete, 1);
 
         if(arr.length > 0){
             window.localStorage.setItem("favJSON", JSON.stringify(arr));
