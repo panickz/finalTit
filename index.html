@@ -22,7 +22,6 @@
     document.addEventListener("deviceready", onDeviceReady, false);
 
     function onDeviceReady() {
-        alert('Device Ready');
         navigator.splashscreen.hide();
 
     }
@@ -308,7 +307,6 @@
 
     document.addEventListener('deviceready', function() {
         try {
-            alert('APP_ID Set! Interface CDV.FB');
             FB.init({ appId: "899133160113324", nativeInterface: CDV.FB, useCachedDialogs: false });
             document.getElementById('data').innerHTML = "";
         } catch (e) {

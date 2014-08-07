@@ -328,7 +328,7 @@ $(document).ready(function(){
 
             $(".favList").append('<li class="remove'+switcher+'"> \
                                     <div class="deleteFav" data-id="'+t+'" style="width:100%; height: 30px; background:#333333; text-align: center;"><img src="images/trash.png" width="16px" style="margin: 0 auto;margin-top: 7px;"></div>\
-				                    <a href="http://www.titlurile-zilei.com/assets/upload/mobile/' + n[t].cover + '" class="swipebox" rel="favorites"> \
+				                    <a href="http://www.titlurile-zilei.com/assets/upload/' + n[t].cover + '" class="swipebox" rel="favorites"> \
 				                        <img class="responsive-image" src="http://www.titlurile-zilei.com/assets/upload/mobile/' + n[t].cover + '" alt="img"> \
 				                    </a> \
 				                    <em class="center-text data" style="padding-bottom: 10px; display:block; font-style: normal;color:white;">'+n[t].name +'</em>    \
@@ -382,6 +382,9 @@ $(document).ready(function(){
         }
 
     });
+
+
+    FastClick.attach(document.body);
 
 });
 
