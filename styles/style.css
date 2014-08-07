@@ -3,6 +3,12 @@
 
 body {
   background-color: 34495e; /* for the tint */
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent; /* To remove it */
+
+    -webkit-overflow-scrolling: touch;
 }
 
 .all-elements{
