@@ -15,7 +15,7 @@ if (!window.cordova) {
             // Try will catch errors when SDK has not been init
             try {
                 FB.getLoginStatus(function (response) {
-                    s(response);
+                    s(response.status);
                 });
             } catch (error) {
                 if (!f) {
@@ -31,9 +31,6 @@ if (!window.cordova) {
             if (!options.name) {
                 options.name = "";
             }
-            if (!options.message) {
-                options.message = "";
-            }
             if (!options.caption) {
                 options.caption = "";
             }
@@ -46,27 +43,26 @@ if (!window.cordova) {
             if (!options.picture) {
                 options.picture = "";
             }
-            
+
             // Try will catch errors when SDK has not been init
             try {
                 FB.ui({
-                    method: options.method,
-                    message: options.message,
-                    name: options.name,
-                    caption: options.caption,
-                    description: (
-                        options.description
-                    ),
-                    link: options.link,
-                    picture: options.picture
-                },
-                function (response) {
-                    if (response && response.request) {
-                        s(response);
-                    } else {
-                        f(response);
-                    }
-                });
+                        method: options.method,
+                        name: options.name,
+                        caption: options.caption,
+                        description: (
+                            options.description
+                            ),
+                        link: options.link,
+                        picture: options.picture
+                    },
+                    function (response) {
+                        if (response && response.post_id) {
+                            s({ post_id: response.post_id });
+                        } else {
+                            f(response);
+                        }
+                    });
             } catch (error) {
                 if (!f) {
                     console.error(error.message);
@@ -82,7 +78,7 @@ if (!window.cordova) {
             if (permissions && permissions.length > 0) {
                 permissionObj.scope = permissions.toString();
             }
-            
+
             FB.login(function (response) {
                 if (response.authResponse) {
                     s(response);
@@ -105,16 +101,6 @@ if (!window.cordova) {
             }
         },
 
-        logEvent: function (eventName, params, valueToSum, s, f) {
-            // AppEvents are not avaliable in JS.
-            s();
-        },
-
-        logPurchase: function (value, currency, s, f) {
-            // AppEvents are not avaliable in JS.
-            s();
-        },
-
         logout: function (s, f) {
             // Try will catch errors when SDK has not been init
             try {
@@ -132,7 +118,7 @@ if (!window.cordova) {
 
         api: function (graphPath, permissions, s, f) {
             // JS API does not take additional permissions
-            
+
             // Try will catch errors when SDK has not been init
             try {
                 FB.api(graphPath, function (response) {
@@ -157,14 +143,13 @@ if (!window.cordova) {
                 version = "v2.0";
             }
             FB.init({
-                appId      : '899133160113324',
-                cookie     : true,
+                appId      : appId,
                 xfbml      : true,
                 version    : version
             })
         }
     };
-    
+
     // Bake in the JS SDK
     (function () {
         console.log("launching FB SDK")
@@ -172,12 +157,6 @@ if (!window.cordova) {
         e.src = 'https://connect.facebook.net/en_US/sdk.js';
         e.async = true;
         document.getElementById('fb-root').appendChild(e);
-        FB.init({
-            appId      : '899133160113324',
-            cookie     : true,
-            xfbml      : true,
-            version    : version
-        })
     }());
 
 }
