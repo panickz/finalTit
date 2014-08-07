@@ -253,6 +253,7 @@
     function login() {
         FB.login(
                 function(response) {
+                    alert(response);
                     if (response.session) {
                         alert('logged in');
                     } else {
