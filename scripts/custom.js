@@ -203,7 +203,7 @@ $(document).ready(function(){
 				                    <a href="http://www.titlurile-zilei.com/assets/upload/mobile/' + t + '" class="swipebox" rel="favorites"> \
 				                        <img class="responsive-image" src="http://www.titlurile-zilei.com/assets/upload/mobile/' + t + '" alt="img"> \
 				                    </a> \
-				                    <em class="center-text data" style="padding-bottom: 10px; display:block; font-style: normal;">'+ nm +'</em>    \
+				                    <em class="center-text data" style="padding-bottom: 10px; display:block; font-style: normal; color:white;">'+ nm +'</em>    \
 				                     <div class="sidebar-decoration" style="width: 100%;margin-bottom: 10px;"></div>\
 				                </li>');
 
@@ -282,7 +282,7 @@ $(document).ready(function(){
 				                    <a href="http://www.titlurile-zilei.com/assets/upload/mobile/' + t + '" class="swipebox" rel="favorites"> \
 				                        <img class="responsive-image" src="http://www.titlurile-zilei.com/assets/upload/mobile/' + t + '" alt="img"> \
 				                    </a> \
-				                    <em class="center-text data" style="padding-bottom: 10px; display:block; font-style: normal;">'+ nm +'</em>    \
+				                    <em class="center-text data" style="padding-bottom: 10px; display:block; font-style: normal; color:white;">'+ nm +'</em>    \
 				                     <div class="sidebar-decoration" style="width: 100%;margin-bottom: 10px;"></div>\
 				                </li>')
 
@@ -331,7 +331,7 @@ $(document).ready(function(){
 				                    <a href="http://www.titlurile-zilei.com/assets/upload/mobile/' + n[t].cover + '" class="swipebox" rel="favorites"> \
 				                        <img class="responsive-image" src="http://www.titlurile-zilei.com/assets/upload/mobile/' + n[t].cover + '" alt="img"> \
 				                    </a> \
-				                    <em class="center-text data" style="padding-bottom: 10px; display:block; font-style: normal;">'+n[t].name +'</em>    \
+				                    <em class="center-text data" style="padding-bottom: 10px; display:block; font-style: normal;color:white;">'+n[t].name +'</em>    \
 				                     <div class="sidebar-decoration" style="width: 100%;margin-bottom: 10px;"></div>\
 				                </li>');
             switcher = switcher + 1;
