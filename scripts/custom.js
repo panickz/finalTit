@@ -356,7 +356,12 @@ $(document).ready(function(){
 
     $(".swipebox").swipebox({
         useCSS : true, // false will force the use of jQuery for animations
-        hideBarsDelay : 3000 // 0 to always show caption and action bar
+        useSVG : true, // false to force the use of png for buttons
+        hideBarsOnMobile : false, // false will show the caption and navbar on mobile devices
+        hideBarsDelay : 3000, // delay before hiding bars
+        videoMaxWidth : 1140, // videos max width
+        beforeOpen: function() {}, // called before opening
+        afterClose: function() {} // called after closing
     });
 
     $('.deleteFav').click(function(){
